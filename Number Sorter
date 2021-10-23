@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+int main ()
+{
+   std::vector<double> num_list;
+   double input;
+   int amount;
+   
+   std::cout << "Berapa angka yang ingin anda urutkan? ";
+   std::cin >> amount;
+
+   std::cout << "Masukkan angka-angka yang ingin diurutkan\n";
+   
+   for (int z = 1; z <= amount; z++) {
+       std::cin >> input;
+       num_list.push_back(input);
+   }
+
+   int size = num_list.size();
+   double temp;
+   
+   for (int m = 1; m < size; m++) {
+       for (int i = 0; i < size-1; i++) {
+           if (num_list[i] > num_list[i+1]) {
+           temp = num_list[i];
+           num_list[i] = num_list[i+1];
+           num_list[i+1] = temp;
+           }
+       }
+   }
+   
+   std::cout << "Urutan angka dari yang terkecil ke yang terbesar adalah:\n";
+   for (int m = 0; m < size; m++) {
+       std::cout << num_list[m] << " ";
+   }
+   
+   return 0;
+}
